@@ -1,1 +1,31 @@
-<p class="p-10 text-gray-200 text-4xl">♥ test-component works! ♥</p>
+<section id="test-component" class="p-10 flex flex-col items-center gap-5 text-4xl text-gray-200">
+  <p class="">♥ test-component works! ♥</p>
+  <p>
+    made by <span class="italic font-bold text-teal-600">{{ myName }}</span>
+  </p>
+  <p>{{ separateWith('♥ ', 12) }}</p>
+
+  <button [disabled]="isEnabled" [class]="buttonClasses">
+    button is sleeping: <span class="underline font-medium">{{ !isEnabled }}</span>
+  </button>
+
+  <p
+    (click)="onHeartClick()"
+    [ngClass]="{
+      'p-5 text-9xl hover:scale-110 transition-transform duration-300 cursor-pointer': true,
+      'text-gray-600': !isHeartActive,
+      'text-teal-600': isHeartActive,
+    }"
+  >
+    ♥
+  </p>
+
+  <p class="text-2xl text-gray-300">{{ userName }}</p>
+
+  <input
+    type="text"
+    [(ngModel)]="userName"
+    placeholder="you are welcome to say something"
+    class="w-200 text-center p-5 outline-0 cursor-pointer hover:border hover:border-gray-500/50 rounded-2xl"
+  />
+</section>
