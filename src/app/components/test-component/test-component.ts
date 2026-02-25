@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -9,9 +9,17 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './test-component.css',
 })
 export class TestComponent {
+  @Input() messageFromParent: string = '(no messages from parent have been received yet...)';
+
+  @Output() dataEmitter = new EventEmitter<string>();
+
+  sendDataToParent() {
+    this.dataEmitter.emit(this.message);
+  }
+
   myName: string = 'helvita';
 
-  userName: string = '';
+  message: string = '';
 
   isEnabled: boolean = false;
 

@@ -1,5 +1,8 @@
-<section id="test-component" class="p-10 flex flex-col items-center gap-5 text-4xl text-gray-200">
+<section id="test-component" class="p-10 flex flex-col items-center gap-5">
   <p class="">♥ test-component works! ♥</p>
+
+  <p class="text-gray-300/80 italic text-2xl">{{ messageFromParent }}</p>
+
   <p>
     made by <span class="italic font-bold text-teal-600">{{ myName }}</span>
   </p>
@@ -20,12 +23,19 @@
     ♥
   </p>
 
-  <p class="text-2xl text-gray-300">{{ userName }}</p>
+  <p class="text-2xl text-gray-300">{{ message }}</p>
 
   <input
     type="text"
-    [(ngModel)]="userName"
+    [(ngModel)]="message"
     placeholder="you are welcome to say something"
     class="w-200 text-center p-5 outline-0 cursor-pointer hover:border hover:border-gray-500/50 rounded-2xl"
   />
+
+  <button
+    (click)="sendDataToParent()"
+    class="text-2xl border py-1 px-4 rounded-2xl text-teal-400 hover:bg-teal-600/20 cursor-pointer transition-colors duration-300"
+  >
+    Send message to the Parent ♥
+  </button>
 </section>
