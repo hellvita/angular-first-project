@@ -56,8 +56,16 @@
   </div>
 
   <!-- ?? *ngIf/*ngFor/*ngSwitch are deprecated -->
-  <p *ngIf="isBlueHear; else notBlueHeart" class="text-[12px]">that's my favorite!</p>
+  <!-- <p *ngIf="isBlueHear; else notBlueHeart" class="text-[12px]">that's my favorite!</p>
   <ng-template #notBlueHeart>
     <p class="text-[12px]">good choice</p>
-  </ng-template>
+  </ng-template> -->
+
+  @if (isBlueHear) {
+    <p class="text-[12px] border-b border-sky-700">that's my favorite!</p>
+  } @else if (isPurpleHear) {
+    <p class="text-[12px] border-b border-purple-700">i like it!</p>
+  } @else {
+    <p class="text-[12px] border-b border-yellow-700">good choice!</p>
+  }
 </section>

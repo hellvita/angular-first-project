@@ -38,20 +38,24 @@ export class TestComponent {
 
   activeColor: string = colors.blue;
   isBlueHear: boolean = true;
+  isPurpleHear: boolean = false;
 
   changeToBlue() {
     this.activeColor = colors.blue;
     this.isBlueHear = true;
+    this.isPurpleHear = false;
   }
 
   changeToPurple() {
     this.activeColor = colors.purple;
     this.isBlueHear = false;
+    this.isPurpleHear = true;
   }
 
   changeToYellow() {
     this.activeColor = colors.yellow;
     this.isBlueHear = false;
+    this.isPurpleHear = false;
   }
 
   get buttonClasses() {
