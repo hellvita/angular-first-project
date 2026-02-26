@@ -58,6 +58,9 @@ export class TestComponent {
     this.isPurpleHear = false;
   }
 
+  partsOfHelvitaMessage = ['hello', 'there!', 'ps:', 'from', 'helvita'];
+  // partsOfHelvitaMessage = [];
+
   get buttonClasses() {
     const base = 'p-4 rounded-2xl bg-blue-900';
     const interaction =

@@ -68,4 +68,17 @@
   } @else {
     <p class="text-[12px] border-b border-yellow-700">good choice!</p>
   }
+
+  <h2>here is some words from helvita:</h2>
+  <ul>
+    @for (part of partsOfHelvitaMessage; track part; let e = $even) {
+      @if (e) {
+        <li class="text-3xl italic text-teal-500 text-right">{{ part }}</li>
+      } @else {
+        <li class="text-3xl italic text-sky-500 text-right">{{ part }}</li>
+      }
+    } @empty {
+      <li class="text-2xl italic text-gray-600">actually, helvita didn't say anything yet...</li>
+    }
+  </ul>
 </section>
