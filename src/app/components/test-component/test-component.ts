@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Highlight } from '../../directives/highlight';
+import { colors } from '../../constants/colors';
 
 @Component({
   selector: 'app-test-component',
@@ -33,6 +34,20 @@ export class TestComponent {
 
   onHeartClick() {
     this.isHeartActive = !this.isHeartActive;
+  }
+
+  activeColor = colors.blue;
+
+  changeToBlue() {
+    this.activeColor = colors.blue;
+  }
+
+  changeToPurple() {
+    this.activeColor = colors.purple;
+  }
+
+  changeToYellow() {
+    this.activeColor = colors.yellow;
   }
 
   get buttonClasses() {

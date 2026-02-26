@@ -43,9 +43,15 @@
 
   <div class="flex items-center gap-10 text-7xl text-gray-600 cursor-default">
     <p appHighlight class="transition-all duration-300">♥</p>
-    <p appHighlight highlightColor="oklch(50% 0.134 242.749)" class="transition-all duration-300">
-      ♥
-    </p>
+    <!-- ♥♥ use [highlightColor]="'oklch(50% 0.134 242.749)'" if the value could change (dynamic) -->
+    <!-- ♥♥ use highlightColor="oklch(50% 0.134 242.749)" if the value is static/constant -->
+    <p appHighlight [highlightColor]="activeColor" class="transition-all duration-300">♥</p>
     <p appHighlight class="transition-all duration-300">♥</p>
+  </div>
+
+  <div class="flex items-center gap-5 cursor-pointer">
+    <div class="w-10 aspect-square bg-sky-700 rounded-2xl" (click)="changeToBlue()"></div>
+    <div class="w-10 aspect-square bg-purple-700 rounded-2xl" (click)="changeToPurple()"></div>
+    <div class="w-10 aspect-square bg-yellow-700 rounded-2xl" (click)="changeToYellow()"></div>
   </div>
 </section>

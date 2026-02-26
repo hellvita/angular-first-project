@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, SimpleChanges } from '@angular/core';
 import { DEFAULT_HIGHLIGHT_COLOR } from '../constants/colors';
 
 @Directive({
