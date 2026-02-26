@@ -36,18 +36,22 @@ export class TestComponent {
     this.isHeartActive = !this.isHeartActive;
   }
 
-  activeColor = colors.blue;
+  activeColor: string = colors.blue;
+  isBlueHear: boolean = true;
 
   changeToBlue() {
     this.activeColor = colors.blue;
+    this.isBlueHear = true;
   }
 
   changeToPurple() {
     this.activeColor = colors.purple;
+    this.isBlueHear = false;
   }
 
   changeToYellow() {
     this.activeColor = colors.yellow;
+    this.isBlueHear = false;
   }
 
   get buttonClasses() {

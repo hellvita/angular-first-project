@@ -54,4 +54,10 @@
     <div class="w-10 aspect-square bg-purple-700 rounded-2xl" (click)="changeToPurple()"></div>
     <div class="w-10 aspect-square bg-yellow-700 rounded-2xl" (click)="changeToYellow()"></div>
   </div>
+
+  <!-- ?? *ngIf/*ngFor/*ngSwitch are deprecated -->
+  <p *ngIf="isBlueHear; else notBlueHeart" class="text-[12px]">that's my favorite!</p>
+  <ng-template #notBlueHeart>
+    <p class="text-[12px]">good choice</p>
+  </ng-template>
 </section>
