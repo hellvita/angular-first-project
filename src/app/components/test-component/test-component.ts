@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Highlight } from '../../directives/highlight';
 
 @Component({
   selector: 'app-test-component',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, Highlight],
   templateUrl: './test-component.html',
   styleUrl: './test-component.css',
 })

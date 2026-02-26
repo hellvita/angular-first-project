@@ -1,8 +1,9 @@
-<div class="flex flex-col justify-center items-center gap-5 p-20">
-  <app-test-component
-    [messageFromParent]="parentMessage"
-    (dataEmitter)="receiveDataFromChild($event)"
-  ></app-test-component>
-
-  <p class="text-gray-300/80 italic text-2xl">Messages from the child: {{ messageFromChildren }}</p>
-</div>
+<app-test-component
+  [messageFromParent]="parentMessage"
+  (dataEmitter)="receiveDataFromChild($event)"
+  class="flex flex-col justify-center items-center gap-5 p-20"
+>
+  <p class="text-gray-300/80 italic text-2xl">
+    Messages from the child: {{ messageFromChildren }}
+  </p></app-test-component
+>
