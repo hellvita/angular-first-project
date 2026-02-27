@@ -3,10 +3,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Highlight } from '../../directives/highlight';
 import { colors } from '../../constants/colors';
+import { ColorizePipe } from '../../pipes/colorize-pipe';
 
 @Component({
   selector: 'app-test-component',
-  imports: [CommonModule, FormsModule, Highlight],
+  imports: [CommonModule, FormsModule, Highlight, ColorizePipe],
   templateUrl: './test-component.html',
   styleUrl: './test-component.css',
 })
@@ -81,6 +82,19 @@ export class TestComponent {
   handleClear() {
     this.isClear = !this.isClear;
     this.clearBtnText = this.isClear ? 'put it back' : 'clear';
+  }
+
+  isGeneratedColor: boolean = false;
+  generateBtnText: string = 'Generate a color!';
+  userInputForColor: string = '';
+
+  generateColor() {
+    if (this.userInputForColor === '') {
+      this.generateBtnText = 'Generate a color!';
+    } else {
+      this.isGeneratedColor = !this.isGeneratedColor;
+      this.generateBtnText = 'Try another one';
+    }
   }
 
   get buttonClasses() {

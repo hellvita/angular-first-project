@@ -1,3 +1,5 @@
+export type COLOR_NAME = 'green' | 'blue' | 'purple' | 'yellow' | 'gray';
+
 export const colors = {
   green: 'oklch(60% 0.118 184.704)',
   blue: 'oklch(50% 0.134 242.749)',
