@@ -119,4 +119,45 @@
     <p class="text-4xl text-purple-500 text-right">{{ myName | lowercase }}</p>
     <p class="text-4xl text-teal-500 text-right">{{ myName | uppercase }}</p>
   </div>
+
+  <div class="flex flex-col gap-5 p-5 items-center">
+    <h2>what currency it is??</h2>
+    <p class="text-3xl italic text-sky-500">{{ 20.5 | currency: 'ㅎ' }}</p>
+  </div>
+
+  <div class="flex flex-col gap-5 p-5 items-center">
+    <h2>just look at this loooong number!</h2>
+    <p class="text-3xl italic">hello, i'm a long number, my value is</p>
+    <p class="text-3xl italic text-teal-400">{{ veryLongNumber }}</p>
+    <p class="text-3xl italic">
+      but you can call me
+      <span class="text-yellow-500">{{ veryLongNumber | number: '1.1-1' }}</span> ~♥
+    </p>
+  </div>
+
+  <div class="flex flex-col gap-5 p-5 items-center">
+    <h2>how do you like it more?</h2>
+    <p class="text-3xl italic text-purple-500 hover:scale-120 transition-transform duration-300">
+      i love you for {{ amountOfLove }}
+    </p>
+    <p class="text-3x">or</p>
+    <p class="text-3xl italic text-teal-400 hover:scale-120 transition-transform duration-300">
+      i love you for {{ amountOfLove | percent }}
+    </p>
+  </div>
+
+  <div class="flex flex-col gap-6 p-5 items-center">
+    <p>help me to get out of all this extra letter</p>
+    <button
+      class="text-2xl border py-1 px-4 rounded-2xl text-teal-400 hover:bg-teal-600/20 cursor-pointer transition-colors duration-300"
+      (click)="handleClear()"
+    >
+      {{ clearBtnText }}
+    </button>
+    @if (isClear) {
+      <p class="text-teal-400 italic text-4xl">{{ thingToClear | slice: 10 : 17 }}</p>
+    } @else {
+      <p class="text-gray-300 italic text-4xl">{{ thingToClear }}</p>
+    }
+  </div>
 </section>

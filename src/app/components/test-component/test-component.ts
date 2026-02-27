@@ -70,6 +70,19 @@ export class TestComponent {
     this.dateButtonText = this.isWannaKnowDate ? 'hide' : 'show me!';
   }
 
+  veryLongNumber: number = 3.4599459003475654126541256622000148555;
+
+  amountOfLove: number = 2.02;
+
+  thingToClear: string = `gfffdetyru${this.myName}gjhkjljhgfytgc`;
+  isClear: boolean = false;
+  clearBtnText: string = 'clear';
+
+  handleClear() {
+    this.isClear = !this.isClear;
+    this.clearBtnText = this.isClear ? 'put it back' : 'clear';
+  }
+
   get buttonClasses() {
     const base = 'p-4 rounded-2xl bg-blue-900';
     const interaction =
