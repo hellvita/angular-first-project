@@ -19,7 +19,7 @@ export class TestComponent {
     this.dataEmitter.emit(this.message);
   }
 
-  myName: string = 'helvita';
+  myName: string = 'Helvita';
 
   message: string = '';
 

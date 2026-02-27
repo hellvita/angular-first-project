@@ -69,7 +69,7 @@
     <p class="text-[12px] border-b border-yellow-700">good choice!</p>
   }
 
-  <h2>here is some words from helvita:</h2>
+  <h2>here is some words from {{ myName }}:</h2>
   <ul>
     @for (
       part of partsOfHelvitaMessage;
@@ -94,7 +94,9 @@
         </li>
       }
     } @empty {
-      <li class="text-2xl italic text-gray-600">actually, helvita didn't say anything yet...</li>
+      <li class="text-2xl italic text-gray-600">
+        actually, {{ myName }} didn't say anything yet...
+      </li>
     }
   </ul>
 
@@ -110,5 +112,11 @@
       <p class="text-gray-300/80 italic text-2xl">i think it is:</p>
       <p class="text-yellow-500">'{{ today | date: 'fullDate' }}'</p>
     }
+  </div>
+
+  <div class="flex flex-col gap-5 p-5 items-center">
+    <h2>here is my name in different cases:</h2>
+    <p class="text-4xl text-purple-500 text-right">{{ myName | lowercase }}</p>
+    <p class="text-4xl text-teal-500 text-right">{{ myName | uppercase }}</p>
   </div>
 </section>
