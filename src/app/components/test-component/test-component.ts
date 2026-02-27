@@ -61,6 +61,15 @@ export class TestComponent {
   partsOfHelvitaMessage = ['hello', 'there!', 'ps:', 'from', 'helvita'];
   // partsOfHelvitaMessage = [];
 
+  isWannaKnowDate: boolean = false;
+  dateButtonText: string = 'show me!';
+  today: Date = new Date();
+
+  handleDataGuess() {
+    this.isWannaKnowDate = !this.isWannaKnowDate;
+    this.dateButtonText = this.isWannaKnowDate ? 'hide' : 'show me!';
+  }
+
   get buttonClasses() {
     const base = 'p-4 rounded-2xl bg-blue-900';
     const interaction =

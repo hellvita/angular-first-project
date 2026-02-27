@@ -97,4 +97,18 @@
       <li class="text-2xl italic text-gray-600">actually, helvita didn't say anything yet...</li>
     }
   </ul>
+
+  <div class="flex flex-col gap-5 p-5 items-center">
+    <p>i can guess what date is today!</p>
+    <button
+      class="text-2xl border py-1 px-4 rounded-2xl text-teal-400 hover:bg-teal-600/20 cursor-pointer transition-colors duration-300"
+      (click)="handleDataGuess()"
+    >
+      {{ dateButtonText }}
+    </button>
+    @if (isWannaKnowDate) {
+      <p class="text-gray-300/80 italic text-2xl">i think it is:</p>
+      <p class="text-yellow-500">'{{ today | date: 'fullDate' }}'</p>
+    }
+  </div>
 </section>
