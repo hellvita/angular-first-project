@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Highlight } from '../../directives/highlight';
 import { colors } from '../../constants/colors';
 import { ColorizePipe } from '../../pipes/colorize-pipe';
+import { Todo } from '../../services/todo';
 
 @Component({
   selector: 'app-test-component',
@@ -11,7 +12,38 @@ import { ColorizePipe } from '../../pipes/colorize-pipe';
   templateUrl: './test-component.html',
   styleUrl: './test-component.css',
 })
-export class TestComponent {
+export class TestComponent implements OnInit {
+  newTask: string = '';
+  tasks: string[] = [];
+
+  constructor(private todoService: Todo) {}
+
+  ngOnInit(): void {
+    this.tasks = this.todoService.getAllTasks();
+  }
+
+  private resetNewTask() {
+    this.newTask = '';
+  }
+
+  private updateTasks() {
+    this.tasks = this.todoService.getAllTasks();
+  }
+
+  addTask() {
+    if (this.newTask.trim() !== '') {
+      this.todoService.addTask(this.newTask.trim());
+
+      this.resetNewTask();
+
+      this.updateTasks();
+    }
+  }
+
+  removeTask(id: number) {
+    this.todoService.deleteTaskById(id);
+  }
+
   @Input() messageFromParent: string = '(no messages from parent have been received yet...)';
 
   @Output() dataEmitter = new EventEmitter<string>();
