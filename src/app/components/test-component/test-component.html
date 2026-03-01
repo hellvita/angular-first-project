@@ -69,7 +69,7 @@
     <p class="text-[12px] border-b border-yellow-700">good choice!</p>
   }
 
-  <h2>here is some words from {{ myName }}:</h2>
+  <h3>here is some words from {{ myName }}:</h3>
   <ul>
     @for (
       part of partsOfHelvitaMessage;
@@ -115,18 +115,18 @@
   </div>
 
   <div class="flex flex-col gap-5 p-5 items-center">
-    <h2>here is my name in different cases:</h2>
+    <h3>here is my name in different cases:</h3>
     <p class="text-4xl text-purple-500 text-right">{{ myName | lowercase }}</p>
     <p class="text-4xl text-teal-500 text-right">{{ myName | uppercase }}</p>
   </div>
 
   <div class="flex flex-col gap-5 p-5 items-center">
-    <h2>what currency it is??</h2>
+    <h3>what currency it is??</h3>
     <p class="text-3xl italic text-sky-500">{{ 20.5 | currency: 'ㅎ' }}</p>
   </div>
 
   <div class="flex flex-col gap-5 p-5 items-center">
-    <h2>just look at this loooong number!</h2>
+    <h3>just look at this loooong number!</h3>
     <p class="text-3xl italic">hello, i'm a long number, my value is</p>
     <p class="text-3xl italic text-teal-400">{{ veryLongNumber }}</p>
     <p class="text-3xl italic">
@@ -136,7 +136,7 @@
   </div>
 
   <div class="flex flex-col gap-5 p-5 items-center">
-    <h2>how do you like it more?</h2>
+    <h3>how do you like it more?</h3>
     <p class="text-3xl italic text-purple-500 hover:scale-120 transition-transform duration-300">
       i love you for {{ amountOfLove }}
     </p>
@@ -180,4 +180,43 @@
       <p class="text-center w-150">{{ userInputForColor | colorize }}</p>
     }
   </div>
+</section>
+
+<section class="p-10 flex flex-col items-center gap-8">
+  <p>{{ separateWith('-', 80) }}</p>
+
+  <div class="flex flex-col gap-8 items-center">
+    <h2 class="text-5xl text-yellow-500">Let's work with some services!</h2>
+    <p class="text-3xl">here you can add some short notes for you:</p>
+  </div>
+
+  <div class="flex flex-col gap-5 items-center">
+    <input
+      type="text"
+      [(ngModel)]="newTask"
+      placeholder="write smt for future self"
+      class="w-200 text-center p-2 outline-0 cursor-pointer hover:border hover:border-gray-500/50 rounded-2xl"
+    />
+
+    <button
+      (click)="addTask()"
+      class="w-fit text-2xl border py-1 px-4 rounded-2xl text-teal-400 hover:bg-teal-600/20 cursor-pointer transition-colors duration-300"
+    >
+      ♥ Add note ♥
+    </button>
+  </div>
+
+  <ul class="flex flex-col gap-4">
+    @for (task of tasks; track $index; let id = $index) {
+      <li class="flex gap-5 items-center justify-center">
+        <p>{{ task }}</p>
+        <button
+          class="w-fit text-2xl border py-1 px-4 rounded-2xl text-gray-400 hover:bg-gray-50/20 hover:text-gray-100 cursor-pointer transition-colors duration-300"
+          (click)="removeTask(id)"
+        >
+          delete it
+        </button>
+      </li>
+    }
+  </ul>
 </section>

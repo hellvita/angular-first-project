@@ -42,6 +42,8 @@ export class TestComponent implements OnInit {
 
   removeTask(id: number) {
     this.todoService.deleteTaskById(id);
+
+    this.updateTasks();
   }
 
   @Input() messageFromParent: string = '(no messages from parent have been received yet...)';
